@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/cat-detail.css' %}"
+/>
+<script defer src="{% static 'js/cat-detail.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<section class="project-container">
+  <div class="project-img">
+    {% if project.wireframe.url %}
+      <img 
+        src="{{project.wireframe.url}}" 
+        alt="Wireframe of {{project.name}}"
+        class="usr-img"
+      >
+    {% else %}
+      <img 
+        src="{% static 'images/' %}" 
+        alt=""
+      >
+      {% comment %} add under construction placeholder logo {% endcomment %}
+    {% endif %}
+  </div>
+  <div class="project-details">
+    <h1>{{ project.name }}</h1>
+    <p>{{ project.description }}</p>
+    <div class="project-actions">
+      <a href="{% url 'projects_update' project.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'projects_delete' project.id %}" class="btn danger">Delete</a>
+    </div>
+    <h3>Change {{ project.name }}'s wireframe</h3>
+    <p id="file-name"></p>
+    <form 
+      action="{% url 'add_wireframe' project.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        Choose photo
+        <input type="file" name="wireframe-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload Wireframe</button>
+    </form>
+  </div>
+</section>
+<div class="steps-resource-container">
+  <section class="steps">
+    <div class="subsection-title">
+      <h2>Project Steps:</h2>
+      <img 
+        src="{% static 'images/' %}" 
+        alt=""
+      />
+      <img 
+        src="{% static 'images/' %}"
+        alt=""
+      />
+      <img 
+        src="{% static 'images/' %}" 
+        alt=""
+      />
+    </div>
+    <h3>Add a Step</h3>
+    <form
+      action="{% url 'add_step' project.id %}"
+      method="post"
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ step_form.as_p }}
+      <button type="submit" class="btn submit">Add Step</button>
+    </form>
+    <h3>All Steps</h3>
+    {% if project.step_set.all.count %}
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Step</th></tr>
+        </thead>
+        <tbody>
+          {% for step in project.step_set.all %}
+            <tr>
+              <td>{{ step.date }}</td>
+              <td>{{ step.get_steps_display }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="subsection-content">
+        <p>{{project.name}} has no steps yet.</p>
+      </div>
+    {% endif %}
+  </section>
+  <section class="resources">
+    <div class="subsection-title">
+      <h2>Resources</h2>
+      <img src="{% static 'images/' %}" alt="" />
+      <img src="{% static 'images/' %}" alt="" />
+      <img src="{% static 'images/' %}" alt="" />
+    </div>
+    <h3>{{ project.name }}'s Resources</h3>
+    <div class="subsection-content">
+      {% if project.resources.count %}
+        {% for resource in cat.resources.all %}
+          <div class="resource-container">
+            <div></div>
+            <a href="{% url 'resources_detail' resource.id %}">
+              <p>Name: {{ resource.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-resources">{{project.name}} doesn't have any resources.</p>
+      {% endif %}
+    </div>
+    <h3>Available Resources</h3>
+    <div class="subsection-content">
+      {% if resources.count %}
+        {% for resource in resources.all %}
+            <a href="{% url 'resources_detail' resource.id %}">
+              <p>Name: {{ resource.name }}</p>
+            </a>
+            <form action="{% url 'assoc_resource' project.id resource.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Add Resource to Project</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="all-resources">
+          {{project.name}} has all available resources.
+        </p>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% endblock %}

@@ -15,7 +15,7 @@ import boto3
 
 from django.http import HttpResponse
 
-class Home(request):
+class Home(LoginView):
   template_name = 'home.html'
 
 def about(request):

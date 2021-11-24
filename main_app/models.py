@@ -21,7 +21,7 @@ class Resource(models.Model):
 
 class Project(models.Model):
   name = models.CharField(max_length=20)
-  programming_language = models.Charfield(max_length=20)
+  programming_language = models.CharField(max_length=20)
   description = models.TextField(max_length=250)
   resources = models.ManyToManyField(Resource)
   # steps = models.ManyToOneRel()
@@ -32,7 +32,7 @@ class Step(models.Model):
   name = models.CharField(max_length=200)
   content = models.TextField(blank=True)
   date = models.DateField('Creation date')
-  step = models.CharField()
+  step = models.CharField(max_length=50)
 
   class Meta:
     ordering = ['-date']

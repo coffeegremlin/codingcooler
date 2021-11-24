@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/resource-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Project Resources</h1>
+  <img src="{% static 'images/' %}" alt="" />
+</section>
+
+<section class="card-container">
+  {% for resource in resource_list %}
+  <div class="card" style="border-color: {{ resource.color }}">
+    <a href="{% url 'toys_detail' toy.id %}">
+      <div class="card-content">
+        <h2>{{ resource.name }}</h2>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
