@@ -18,8 +18,8 @@
 
 <section class="card-container">
   {% for resource in resource_list %}
-  <div class="card" style="border-color: {{ resource.color }}">
-    <a href="{% url 'toys_detail' toy.id %}">
+  <div class="card">
+    <a href="{% url 'resources_detail' resource.id %}">
       <div class="card-content">
         <h2>{{ resource.name }}</h2>
       </div>

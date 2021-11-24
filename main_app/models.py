@@ -28,6 +28,12 @@ class Project(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   complete = models.BooleanField
 
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+      return reverse('projects_detail', kwargs={'project_id': self.id})
+
 class Step(models.Model):
   name = models.CharField(max_length=200)
   content = models.TextField(blank=True)

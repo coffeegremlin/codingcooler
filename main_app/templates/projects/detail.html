@@ -118,7 +118,7 @@
     <h3>{{ project.name }}'s Resources</h3>
     <div class="subsection-content">
       {% if project.resources.count %}
-        {% for resource in cat.resources.all %}
+        {% for resource in project.resources.all %}
           <div class="resource-container">
             <div></div>
             <a href="{% url 'resources_detail' resource.id %}">
