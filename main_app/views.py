@@ -8,13 +8,13 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Project, Step, Resource, Wireframe
+from .models import Project, Resource, Wireframe
 from .forms import StepForm
 import uuid
 import boto3
 
-# add S3_BASE_URL here
-# add BUCKET here
+S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+BUCKET = 'coding-cooler-freezer-drawer'
 
 # Create your views here.
 class Home(LoginView):
@@ -91,6 +91,7 @@ def add_wireframe(request, project_id):
     key = uuid.uuid4().hex + wireframe_file.name[wireframe_file.name.rfind('.'):]
     try:
       s3.upload_fileobj(wireframe_file, BUCKET, key)
+      url = f'{S3_BASE_URL}{BUCKET}/{key}'
       wireframe = Wireframe(url=url, project_id=project_id)
       project_wireframe = Wireframe.objects.filter(project_id = project_id)
       if project_wireframe.first():
