@@ -33,7 +33,10 @@ def projects_detail(request, project_id):
   project = Project.objects.get(id=project_id)
   resources_not_in_project = Resource.objects.exclude(id__in = project.resources.all().values_list('id'))
   step_form = StepForm()
-  return render(request, 'projects/detail.html', {'project': project, 'step_form': step_form, 'resources': resources_not_in_project})
+  wireframe = Wireframe.objects.get(project_id=project_id)
+  print('project', project)
+  print('wireframe', wireframe)
+  return render(request, 'projects/detail.html', {'project': project, 'step_form': step_form, 'resources': resources_not_in_project, 'wireframe': wireframe})
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
   model = Project
@@ -85,7 +88,7 @@ def assoc_resource(request, project_id, resource_id):
 
 @login_required
 def add_wireframe(request, project_id):
-  wireframe_file = request.FILES.get('wireframe-photo', None)
+  wireframe_file = request.FILES.get('wireframe-file', None)
   if wireframe_file:
     s3 = boto3.client('s3')
     key = uuid.uuid4().hex + wireframe_file.name[wireframe_file.name.rfind('.'):]
@@ -99,6 +102,7 @@ def add_wireframe(request, project_id):
       wireframe.save()
     except Exception as err:
       print('An error occured sending a picture to s3 dipshit: %s' %err)
+  print('wireframe', wireframe_file)
   return redirect('projects_detail', project_id=project_id)
 
 def signup(request):
