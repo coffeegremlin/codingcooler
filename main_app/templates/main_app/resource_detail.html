@@ -1,12 +1,10 @@
 {% extends 'base.html' %} 
 {% load static %} 
 
+
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
 {% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
-{% endblock %}
-
-{% block head %}
 <link
   rel="stylesheet"
   type="text/css"
@@ -24,7 +22,7 @@
     {% comment %} Figure out how to open a link without having localhost:8000 at the front {% endcomment %}
   </div>
 </div>
-<a href="{% url 'resources_update' resource.id %}" class="btn warn">Edit</a>
-<a href="{% url 'resources_delete' resource.id %}" class="btn danger">Delete</a>
+<a href="{% url 'resources_update' resource.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'resources_delete' resource.id %}" class="btn btn-danger">Delete</a>
 
 {% endblock %}

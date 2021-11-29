@@ -28,8 +28,8 @@
     <h1>{{ project.name }}</h1>
     <p>{{ project.description }}</p>
     <div class="project-actions">
-      <a href="{% url 'projects_update' project.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'projects_delete' project.id %}" class="btn danger">Delete</a>
+      <a href="{% url 'projects_update' project.id %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'projects_delete' project.id %}" class="btn btn-danger">Delete</a>
     </div>
     <h3>Change {{ project.name }}'s wireframe</h3>
     <p id="file-name"></p>
@@ -39,7 +39,7 @@
       method="POST"
     >
       {% csrf_token %}
-      <label class="btn secondary">
+      <label class="btn">
         Choose Wireframe Image
         <input type="file" name="wireframe-file" id="file-input">
       </label>
@@ -64,7 +64,7 @@
     >
       {% csrf_token %}
       {{ step_form.as_p }}
-      <button type="submit" class="btn submit">Add Step</button>
+      <button type="submit" class="btn btn-success">Add Step</button>
     </form>
     <h3>All Steps</h3>
     {% if project.step_set.all.count %}
@@ -125,7 +125,7 @@
             </a>
             <form action="{% url 'assoc_resource' project.id resource.id %}" method="post">
               {% csrf_token %}
-              <button type="submit" class="btn submit">Add Resource to Project</button>
+              <button type="submit" class="btn btn-success">Add Resource to Project</button>
             </form>
           </div>
         {% endfor %}

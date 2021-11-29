@@ -18,11 +18,11 @@
   {% csrf_token %}
   <a 
     href="{% url 'resources_detail' resource.id %}" 
-    class="btn secondary"
+    class="btn"
   >
     Cancel
   </a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
+  <button type="submit" class="btn btn-danger">Yes - Delete!</button>
 </form>
 
 {% endblock %}
