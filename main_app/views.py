@@ -113,15 +113,15 @@ def add_wireframe(request, project_id):
   return redirect('projects_detail', project_id=project_id)
 
 def signup(request):
-  error_message = ""
-  if request.method == "POST":
+  error_message = ''
+  if request.method == 'POST':
     form = UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('projects_index')
+      return redirect('cats_index')
     else:
-      error_message='I have no idea how you messed up typing words into a box, but you did. Try again einstein. If you get it right this time your reward is a new account and no further embarrassment.'
+      error_message = 'I have no idea how you messed up typing words into a box, but you did. Try again einstein. If you get it right this time your reward is a new account and no further embarrassment.'
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)

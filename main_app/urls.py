@@ -35,5 +35,5 @@ urlpatterns = [
   # localhost:8000/projects/project_id/add_wireframe/
   path('projects/<int:project_id>/add_wireframe/', views.add_wireframe, name='add_wireframe'),
   # localhost:8000/accounts/signup/
-  path('accounts/signup/', views.signup, name='signup')
+  path('accounts/signup/', views.signup, name='signup'),
 ]
