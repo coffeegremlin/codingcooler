@@ -90,8 +90,8 @@
           {% for step in project.step_set.all %}
             <tr>
               <td>{{ step.date }}</td>
-              {% comment %} <td>{{ step.get_steps_display }}</td> {% endcomment %}
               <td>{{ step.name }}</td>
+              {% comment %} add a description maybe or a numbered list? {% endcomment %}
             </tr>
           {% endfor %}
         </tbody>
