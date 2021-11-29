@@ -91,7 +91,14 @@
             <tr>
               <td>{{ step.date }}</td>
               <td>{{ step.name }}</td>
-              {% comment %} add a description maybe or a numbered list? {% endcomment %}
+
+              {% comment %} <td>
+                <form action="" method="POST" class="form">
+                  {% csrf_token %}
+                  <button type="submit" class="btn danger">Delete This Step</button>
+                </form>
+              </td> {% endcomment %}
+              
             </tr>
           {% endfor %}
         </tbody>

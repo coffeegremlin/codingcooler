@@ -13,11 +13,13 @@ urlpatterns = [
   # localhost:8000/projects/create
   path('projects/create/', views.ProjectCreate.as_view(), name='projects_create'),
   # localhost:8000/projects/
-  path('projects/<int:pk>/update', views.ProjectUpdate.as_view(), name="projects_update"),
+  path('projects/<int:pk>/update', views.ProjectUpdate.as_view(), name='projects_update'),
   # localhost:8000/projects/:pk/delete
-  path('projects/<int:pk>/delete', views.ProjectDelete.as_view(), name="projects_delete"),
+  path('projects/<int:pk>/delete', views.ProjectDelete.as_view(), name='projects_delete'),
   # localhost:8000/projects/:project_id/add_step/
-  path('projects/<int:project_id>/add_step/', views.add_step, name="add_step"),
+  path('projects/<int:project_id>/add_step/', views.add_step, name='add_step'),
+
+  # path('projects/<int:project_id>/delete_step', views.delete_step, name='delete_step'),
   # localhost:8000/resources/create/
   path('resources/create/', views.ResourceCreate.as_view(), name='resources_create'),
   # localhost:8000/resources/:pk/

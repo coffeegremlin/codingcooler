@@ -43,7 +43,6 @@ class Step(models.Model):
 
   def __str__(self):
     return f'{self.get_step_display()} on {self.date}'
-
   # def updated_today(self):
   #   return self.step_set.filter(date=date.today()).count() >= len()
   # Find a way to show if project was updated today based off if a step was added today

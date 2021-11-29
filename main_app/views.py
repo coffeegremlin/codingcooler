@@ -8,7 +8,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Project, Resource, Wireframe
+from .models import Project, Resource, Step, Wireframe
 from .forms import StepForm
 import uuid
 import boto3
@@ -63,6 +63,12 @@ def add_step(request, project_id):
     new_step.project_id = project_id
     new_step.save()
   return redirect('projects_detail', project_id=project_id)
+
+# @login_required
+# def delete_step(request, project_id):
+#   form = StepForm(request.POST)
+
+
 
 class ResourceCreate(LoginRequiredMixin, CreateView):
   model = Resource
