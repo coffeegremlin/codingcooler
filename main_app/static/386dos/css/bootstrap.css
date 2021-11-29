@@ -42,7 +42,7 @@ $cyan:     #00aaaad0 !default;
 
 @font-face {
   font-family: 'DOS';
-  src: url("../fonts/Px437_IBM_EGA8.otf") format("opentype");
+  src: url("/static/386dos/fonts/Px437_IBM_EGA8.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   -webkit-font-kerning: none;
@@ -2108,7 +2108,7 @@ pre code {
 
 .form-control:disabled, .form-control[readonly] {
   opacity: 1;
-  background: url("../fonts/left-brace-grayLight.svg") no-repeat left bottom, url("../fonts/right-brace-grayLight.svg") no-repeat right bottom, #555555;
+  background: url("/static/386dos/fonts/left-brace-grayLight.svg") no-repeat left bottom, url("/static/386dos/fonts/right-brace-grayLight.svg") no-repeat right bottom, #555555;
 }
 
 select.form-control {
@@ -2172,7 +2172,7 @@ select.form-control:focus::-ms-value {
   color: #bbbbbb;
   background-color: transparent;
   border: 0;
-  background: url("../fonts/left-brace-grayLight.svg") no-repeat left bottom, url("../fonts/right-brace-grayLight.svg") no-repeat right bottom;
+  background: url("/static/386dos/fonts/left-brace-grayLight.svg") no-repeat left bottom, url("/static/386dos/fonts/right-brace-grayLight.svg") no-repeat right bottom;
 }
 
 .form-control-sm {
@@ -2211,7 +2211,7 @@ textarea.form-control {
 }
 
 input.form-control {
-  background: url("../fonts/left-brace-black.svg") no-repeat left bottom, url("../fonts/right-brace-black.svg") no-repeat right bottom, #bbbbbb;
+  background: url("/static/386dos/fonts/left-brace-black.svg") no-repeat left bottom, url("/static/386dos/fonts/right-brace-black.svg") no-repeat right bottom, #bbbbbb;
   color: #000000;
   padding: 0 8px;
 }
@@ -3756,7 +3756,7 @@ input[type="button"].btn-block {
 }
 
 .dropright .dropdown-toggle {
-  background: url("../fonts/arrow-down.svg") 3px 3.6px/4.87px no-repeat .dropright .dropdown-toggle;
+  background: url("/static/386dos/fonts/arrow-down.svg") 3px 3.6px/4.87px no-repeat .dropright .dropdown-toggle;
 }
 
 .dropright .dropdown-toggle ::after {
@@ -4245,7 +4245,7 @@ input[type="button"].btn-block {
   padding: 0;
   color: #000000;
   vertical-align: middle;
-  background: url("../fonts/arrow-down-black.svg") no-repeat right center, #bbbbbb;
+  background: url("/static/386dos/fonts/arrow-down-black.svg") no-repeat right center, #bbbbbb;
   border: 0 solid #555555;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -4409,7 +4409,7 @@ input[type="button"].btn-block {
   color: transparent;
   cursor: none;
   margin: 0;
-  background: url("../fonts/hyphen-black.svg") repeat-x left center, #bbbbbb;
+  background: url("/static/386dos/fonts/hyphen-black.svg") repeat-x left center, #bbbbbb;
   border-color: transparent;
 }
 
@@ -4430,7 +4430,7 @@ input[type="button"].btn-block {
   height: 14px;
   color: transparent;
   cursor: none;
-  background: url("../fonts/hyphen-black.svg") repeat-x left center, #bbbbbb;
+  background: url("/static/386dos/fonts/hyphen-black.svg") repeat-x left center, #bbbbbb;
   border-color: transparent;
 }
 
@@ -5630,7 +5630,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   display: -ms-flexbox;
   display: flex;
   height: 14px;
-  background: url("../fonts/shade-50-grayLight.svg") repeat-x left center;
+  background: url("/static/386dos/fonts/shade-50-grayLight.svg") repeat-x left center;
 }
 
 .progress-bar {
@@ -6726,16 +6726,16 @@ body.bootstra-enable-cursor,
 }
 
 *::-webkit-scrollbar-track {
-  background: url("../fonts/shade-50-grayLight.svg") repeat;
+  background: url("/static/386dos/fonts/shade-50-grayLight.svg") repeat;
 }
 
 *::-webkit-scrollbar-button:vertical:decrement {
-  background: url("../fonts/arrow-up-black.svg") no-repeat;
+  background: url("/static/386dos/fonts/arrow-up-black.svg") no-repeat;
   background-color: #bbbbbb;
 }
 
 *::-webkit-scrollbar-button:vertical:increment {
-  background: url("../fonts/arrow-down-black.svg") no-repeat;
+  background: url("/static/386dos/fonts/arrow-down-black.svg") no-repeat;
   background-color: #bbbbbb;
 }
 
