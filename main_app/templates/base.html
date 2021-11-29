@@ -13,7 +13,7 @@
   >
   <title>Coding Cooler</title>
   <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-  <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+  {% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
   {% endblock %}
@@ -22,10 +22,11 @@
   <header>
     <div class="header-logo-container">
       <a href="{% url 'home' %}">
-        <img 
+        Home
+        {% comment %} <img 
           src="" 
           alt=""
-        >
+        > {% endcomment %}
       </a>
     </div>
     <nav>

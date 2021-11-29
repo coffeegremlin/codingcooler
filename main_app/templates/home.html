@@ -3,7 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
 {% endblock %}
 
@@ -11,13 +11,12 @@
 
 <section class="logo-container">
   <div class="project-container">
-    <img src="{% static 'images/' %}" alt="" />
-    {% comment %} maybe add a drink cooler as a logo? {% endcomment %}
+    {% comment %} <img src="{% static 'images/' %}" alt="" /> {% endcomment %}
   </div>
-  <img 
+  {% comment %} <img 
     src="{% static 'images/' %}" 
     alt=""
-  />
+  /> {% endcomment %}
 </section>
 
 {% if not user.is_authenticated %}

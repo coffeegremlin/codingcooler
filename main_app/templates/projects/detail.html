@@ -12,7 +12,7 @@
 >
 </script>
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
 <link 
   rel="stylesheet" 
   type="text/css" 
@@ -31,11 +31,11 @@
         alt="Wireframe of {{project.name}}"
         class="usr-img"
       >
-    {% else %}
+    {% comment %} {% else %}
       <img 
         src="{% static 'images/' %}" 
         alt=""
-      >
+      > {% endcomment %}
       {% comment %} add under construction placeholder logo {% endcomment %}
     {% endif %}
   </div>
@@ -66,11 +66,10 @@
   <section class="steps">
     <div class="subsection-title">
       <h2>Project Steps:</h2>
-      <img 
+      {% comment %} <img 
         src="" 
         alt=""
-      />
-      {% comment %} add some images here for deco {% endcomment %}
+      /> {% endcomment %}
     </div>
     <h3>Add a Step</h3>
     <form

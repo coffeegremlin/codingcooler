@@ -3,7 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
 <link
   rel="stylesheet"
   type="text/css"
@@ -15,7 +15,7 @@
 
 <section class="page-header">
   <h1>All Project Resources</h1>
-  <img src="{% static 'images/' %}" alt="" />
+  {% comment %} <img src="{% static 'images/' %}" alt="" /> {% endcomment %}
 </section>
 
 <section class="card-container">

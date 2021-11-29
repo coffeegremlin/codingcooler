@@ -3,7 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
 {% endblock %}
 
@@ -14,7 +14,7 @@
   {% else %}
     <h1>Add a Resource</h1>
   {% endif %}
-  <img src="{% static 'images/' %}" alt=""/>
+  {% comment %} <img src="{% static 'images/' %}" alt=""/> {% endcomment %}
 </div>
 <form action="" method="post" class="form-container" autocomplete="off">
   {% csrf_token %}

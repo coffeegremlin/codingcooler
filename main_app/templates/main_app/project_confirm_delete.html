@@ -3,14 +3,14 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
 {% endblock %}
 
 {% block content %}
 
 <div class="page-header">
   <h1>Delete Project?</h1>
-  <img src="" alt="">
+  {% comment %} <img src="" alt=""> {% endcomment %}
 </div>
 <h2>Are you sure you want to delete {{ object.name }}?</h2>
 

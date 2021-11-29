@@ -3,7 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/project-index.css' %}">
 {% endblock %}
 
@@ -22,10 +22,9 @@
           <div class="card-img-container">
             {% if project.wireframe.url %}
             {% comment %} show an the wireframe if there is one {% endcomment %}
-              <img src="" alt="">
+              {% comment %} <img src="" alt="">
             {% else %}
-              <img src="" alt="">
-              {% comment %} Show an under construction log image placeholder {% endcomment %}
+              <img src="" alt=""> {% endcomment %}
             {% endif %}
           </div>
           <h2>{{ project.name }}</h2>
