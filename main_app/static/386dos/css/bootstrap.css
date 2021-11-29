@@ -3756,7 +3756,7 @@ input[type="button"].btn-block {
 }
 
 .dropright .dropdown-toggle {
-  background: url("/static/386dos/fonts/arrow-down.svg") 3px 3.6px/4.87px no-repeat .dropright .dropdown-toggle;
+  background: url("/static/386dos/fonts/arrow-down-black.svg") 3px 3.6px/4.87px no-repeat .dropright .dropdown-toggle;
 }
 
 .dropright .dropdown-toggle ::after {
