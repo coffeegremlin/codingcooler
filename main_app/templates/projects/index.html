@@ -26,10 +26,10 @@
               {% comment %} Show an under construction log image placeholder {% endcomment %}
             {% endif %}
           </div>
-          <p>{{ project.name }}</p>
+          <h2>{{ project.name }}</h2>
           {% comment %} add an if else if to show if project has been updated {% endcomment %}
           <h3>{{ project.programming_language }}</h3>
-          <p>{{ project.description }}</p> {% endcomment %}
+          <p>{{ project.description }}</p>
           <p>{{ project.complete }}</p>
         </div>
           {% endfor %}

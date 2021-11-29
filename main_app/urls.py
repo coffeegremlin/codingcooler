@@ -31,7 +31,7 @@ urlpatterns = [
   # localhost:8000/projects/:project_id/assoc_resource/:resource_id/
   path('projects/<int:project_id>/assoc_resource/<int:resource_id>/', views.assoc_resource, name='assoc_resource'),
   # localhost:8000/projects/project_id/add_wireframe/
-  path('projects/<int:project_id>/add_wireframe/', views.add_wireframe, name="add_wireframe"),
+  path('projects/<int:project_id>/add_wireframe/', views.add_wireframe, name='add_wireframe'),
   # localhost:8000/accounts/signup/
-  path("accounts/signup/", views.signup, name="signup")
+  path('accounts/signup/', views.signup, name='signup')
 ]

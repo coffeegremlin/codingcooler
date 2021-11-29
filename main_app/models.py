@@ -24,7 +24,6 @@ class Project(models.Model):
   programming_language = models.CharField(max_length=20)
   description = models.TextField(max_length=250)
   resources = models.ManyToManyField(Resource)
-  # steps = models.ManyToOneRel()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   complete = models.BooleanField
 
@@ -35,10 +34,9 @@ class Project(models.Model):
       return reverse('projects_detail', kwargs={'project_id': self.id})
 
 class Step(models.Model):
-  name = models.CharField(max_length=200)
-  content = models.TextField(blank=True)
   date = models.DateField('Creation date')
-  step = models.CharField(max_length=50)
+  name = models.CharField(max_length=50)
+  project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
   class Meta:
     ordering = ['-date']

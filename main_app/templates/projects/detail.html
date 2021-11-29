@@ -23,9 +23,9 @@
 
 <section class="project-container">
   <div class="project-img">
-    {% if wireframe.url %}
+    {% if project.wireframe.url %}
       <img 
-        src="{{wireframe.url}}" 
+        src="{{project.wireframe.url}}" 
         alt="Wireframe of {{project.name}}"
         class="usr-img"
       >
@@ -53,7 +53,7 @@
     >
       {% csrf_token %}
       <label class="btn secondary">
-        Choose photo
+        Choose Wireframe Image
         <input type="file" name="wireframe-file" id="file-input">
       </label>
       <button type="submit" class="btn submit">Upload Wireframe</button>
@@ -65,7 +65,7 @@
     <div class="subsection-title">
       <h2>Project Steps:</h2>
       <img 
-        src="{% static 'images/' %}" 
+        src="" 
         alt=""
       />
       {% comment %} add some images here for deco {% endcomment %}
@@ -90,7 +90,8 @@
           {% for step in project.step_set.all %}
             <tr>
               <td>{{ step.date }}</td>
-              <td>{{ step.get_steps_display }}</td>
+              {% comment %} <td>{{ step.get_steps_display }}</td> {% endcomment %}
+              <td>{{ step.name }}</td>
             </tr>
           {% endfor %}
         </tbody>
@@ -104,7 +105,7 @@
   <section class="resources">
     <div class="subsection-title">
       <h2>Resources</h2>
-      <img src="{% static 'images/' %}" alt="" />
+      <img src="" alt="" />
       {% comment %} add some images here for deco {% endcomment %}
     </div>
     <h3>{{ project.name }}'s Resources</h3>
