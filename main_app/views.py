@@ -119,7 +119,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('parts_index')
+      return redirect('projects_index')
     else:
       error_message = 'I have no idea how you messed up typing words into a box, but you did. Try again einstein. If you get it right this time your reward is a new account and no further embarrassment.'
   form = UserCreationForm()
