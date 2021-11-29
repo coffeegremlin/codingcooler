@@ -24,21 +24,6 @@
 {% block content %}
 
 <section class="project-container">
-  <div class="project-img">
-    {% if project.wireframe.url %}
-      <img 
-        src="{{project.wireframe.url}}" 
-        alt="Wireframe of {{project.name}}"
-        class="usr-img"
-      >
-    {% comment %} {% else %}
-      <img 
-        src="{% static 'images/' %}" 
-        alt=""
-      > {% endcomment %}
-      {% comment %} add under construction placeholder logo {% endcomment %}
-    {% endif %}
-  </div>
   <div class="project-details">
     <h1>{{ project.name }}</h1>
     <p>{{ project.description }}</p>
@@ -148,6 +133,21 @@
         <p class="all-resources">
           {{project.name}} has all available resources.
         </p>
+      {% endif %}
+    </div>
+    <div class="project-img">
+      {% if project.wireframe.url %}
+        <img 
+          src="{{project.wireframe.url}}" 
+          alt="Wireframe of {{project.name}}"
+          style="width: 300px;"
+        >
+      {% comment %} {% else %}
+        <img 
+          src="{% static 'images/' %}" 
+          alt=""
+        > {% endcomment %}
+        {% comment %} add under construction placeholder logo {% endcomment %}
       {% endif %}
     </div>
   </section>

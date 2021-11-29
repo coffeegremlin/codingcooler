@@ -13,7 +13,7 @@ from .forms import StepForm
 import uuid
 import boto3
 
-S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+S3_BASE_URL = 'https://s3.us-west-1.amazonaws.com/'
 BUCKET = 'coding-cooler-freezer-drawer'
 
 # Create your views here.
