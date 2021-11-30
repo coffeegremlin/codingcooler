@@ -10,16 +10,16 @@
 {% block content %}
 
 <section class="page-header">
-  <h1>Project List</h1>
+  <h3>Project List</h3>
   {% comment %} add some stylish shit here, idk {% endcomment %}
 </section>
 
 <section class="card-container">
   {% for project in projects %}
-    <div class="card">
+    <div class="">
       <a href="{% url 'projects_detail' project.id %}">
-        <div class="card-content">
-          <div class="card-img-container">
+        <div class="">
+          <div class="">
             {% if project.wireframe.url %}
             {% comment %} show an the wireframe if there is one {% endcomment %}
               {% comment %} <img src="" alt="">
@@ -27,11 +27,11 @@
               <img src="" alt=""> {% endcomment %}
             {% endif %}
           </div>
-          <h3 class="text-center">Project Name: {{ project.name }}</h3>
+          <h4 class="text-center">Project Name: {{ project.name }}</h4>
           {% comment %} add an if else if to show if project has been updated {% endcomment %}
           <p class="text-left">Language: {{ project.programming_language }}</p>
           <p class="text-left">Description: {{ project.description }}</p>
-          <p class="text-left">Complete: {{ project.complete }}</p>
+          {% comment %} <p class="text-left">Complete: {{ project.complete }}</p> {% endcomment %}
         </div>
           {% endfor %}
       </a>

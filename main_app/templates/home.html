@@ -9,13 +9,12 @@
 
 {% block content %}
 
-<section class="logo-container">
-</section>
+<div style="align-items: center; text-align: center;">
 
 {% if not user.is_authenticated %}
   <section>
     <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
+      <h5>Login</h5>
       {% csrf_token %}
       {{ form.as_p }}
       <input type="hidden" name="next" value="{{ next }}">
@@ -23,5 +22,14 @@
     </form>
   </section>
 {% endif %}
+
+<img 
+  src="{% static 'images/transparent.png' %}" 
+  alt="DOS rules"
+  class="img-polaroid"
+  style="max-width:50%;"
+  />
+
+</div>
 
 {% endblock %}

@@ -14,16 +14,16 @@
 {% block content %}
 
 <section class="page-header">
-  <h1>All Project Resources</h1>
+  <h3>All Project Resources</h3>
   {% comment %} <img src="{% static 'images/' %}" alt="" /> {% endcomment %}
 </section>
 
-<section class="card-container">
+<section class="" style="align-items: center; text-align: center;">
   {% for resource in resource_list %}
-  <div class="card">
+  <div class="" style="align-items: center; text-align: center;">
     <a href="{% url 'resources_detail' resource.id %}">
-      <div class="card-content">
-        <h2>{{ resource.name }}</h2>
+      <div class="">
+        <h4>{{ resource.name }}</h4>
       </div>
     </a>
   </div>
