@@ -3,8 +3,8 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static '386dos/css/bootstrap.css' %}"/>
-{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -24,5 +24,7 @@
     <button type="submit" class="btn">Submit!</button>
   </div>
 </form>
+
+<h6 style="text-align: center;">End of Page</h6>
 
 {% endblock %}

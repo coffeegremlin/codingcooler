@@ -12,12 +12,8 @@
 >
 </script>
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
-<link 
-  rel="stylesheet" 
-  type="text/css" 
-  href="{% static 'css/project-detail.css' %}"
-/>
+<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
 <script defer src="{% static 'js/project-detail.js' %}"></script>
 {% endblock %}
 
@@ -27,28 +23,28 @@
   <div class="project-details" style="align-items: center; text-align: center;">
     <h3>Project Name: {{ project.name }}</h3>
     <p>{{ project.description }}</p>
-    <div class="project-actions">
+    <div style="align-items: center; text-align: center;">
       <a href="{% url 'projects_update' project.id %}" class="btn btn-warning">Edit</a>
       <a href="{% url 'projects_delete' project.id %}" class="btn btn-danger">Delete</a>
     </div>
     <h3>Change {{ project.name }}'s wireframe</h3>
-    <div class="form-actions">
-    <p id="file-name"></p>
-    <form 
-      action="{% url 'add_wireframe' project.id %}"
-      enctype="multipart/form-data"
-      method="POST"
-    >
-      {% csrf_token %}
-      <label class="btn">
-        <input type="file" name="wireframe-file" id="file-input" class="btn btn-primary">
-      </label>
-      <button type="submit" class="btn btn-primary">Upload Wireframe</button>
-    </form>
+    <div style="align-items: center; text-align: center;">
+      <p id="file-name"></p>
+      <form 
+        action="{% url 'add_wireframe' project.id %}"
+        enctype="multipart/form-data"
+        method="POST"
+      >
+        {% csrf_token %}
+        <label class="btn">
+          <input type="file" name="wireframe-file" id="file-input" class="btn btn-primary">
+        </label>
+        <button type="submit" class="btn btn-primary">Upload Wireframe</button>
+      </form>
     </div>
   </div>
 </section>
-<div class="steps-resource-container" >
+<div style="align-items: center; text-align: center;">
   <section class="steps">
     <h3>Add a Step to {{project.name}}</h3>
     <form
@@ -84,23 +80,22 @@
         </tbody>
       </table>
     {% else %}
-      <div class="subsection-content">
+      <div>
         <p>{{project.name}} has no steps yet.</p>
       </div>
     {% endif %}
   </section>
   <section class="resources">
-    <div class="subsection-title">
+    <div>
       <h3>Resources</h3>
     </div>
-    <h3>{{ project.name }}'s Resources</h3>
-    <div class="subsection-content">
+    <h4>{{ project.name }}'s Resources</h4>
+    <div>
       {% if project.resources.count %}
         {% for resource in project.resources.all %}
-          <div class="resource-container">
-            <div></div>
+          <div>
             <a href="{% url 'resources_detail' resource.id %}">
-              <p>Name: {{ resource.name }}</p>
+              <p>{{ resource.name }}</p>
             </a>
           </div>
         {% endfor %}
@@ -129,12 +124,14 @@
     </div>
     <div class="project-img">
       {% if project.wireframe.url %}
+        <h4>Current Wireframe: </h4>
         <img 
           src="{{project.wireframe.url}}" 
           alt="Wireframe of {{project.name}}"
           class="img-polaroid"
-          style="width: 300px;"
+          style="width: 80%; align-items: center;"
         >
+        <h6>End of Page</h6>
       {% endif %}
     </div>
   </section>

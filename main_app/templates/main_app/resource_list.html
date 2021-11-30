@@ -3,19 +3,14 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/resource-index.css' %}"
-/>
+<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <section class="page-header">
   <h3>All Project Resources</h3>
-  {% comment %} <img src="{% static 'images/' %}" alt="" /> {% endcomment %}
 </section>
 
 <section class="" style="align-items: center; text-align: center;">
@@ -29,5 +24,6 @@
   </div>
   {% endfor %}
 </section>
+<h6 style="text-align: center;">End of Page</h6>
 
 {% endblock %}

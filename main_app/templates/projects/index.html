@@ -3,8 +3,8 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/project-index.css' %}">
+<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -28,14 +28,13 @@
             {% endif %}
           </div>
           <h4 class="text-center">Project Name: {{ project.name }}</h4>
-          {% comment %} add an if else if to show if project has been updated {% endcomment %}
           <p class="text-left">Language: {{ project.programming_language }}</p>
           <p class="text-left">Description: {{ project.description }}</p>
-          {% comment %} <p class="text-left">Complete: {{ project.complete }}</p> {% endcomment %}
         </div>
           {% endfor %}
       </a>
     </div>
+    <h6 style="text-align: center;">End of Page</h6>
 </section>
 
 {% endblock %}

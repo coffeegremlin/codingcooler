@@ -4,25 +4,21 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-{% comment %} <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"> {% endcomment %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/resource-detail.css' %}"
-/>
+<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
 {% endblock %}
 
 {% block content %}
   
 <div class="" style="align-items: center; text-align: center;">
-  <div class="">
-    <h4>{{ resource.name }}</h4>
-    <h3>{{ resource.url }}</h3>
-    {% comment %} <a href="{{ resource.url }}">Link for resource</a> {% endcomment %}
-    {% comment %} Figure out how to open a link without having localhost:8000 at the front {% endcomment %}
-  </div>
+  <h4>{{ resource.name }}</h4>
+  <h3>Resource URL: {{ resource.url }}</h3>
+  {% comment %} <a href="{{ resource.url }}">Link for resource</a> {% endcomment %}
+  {% comment %} Figure out how to open a link without having localhost:8000 at the front {% endcomment %}
 </div>
-<a href="{% url 'resources_update' resource.id %}" class="btn btn-warning">Edit</a>
-<a href="{% url 'resources_delete' resource.id %}" class="btn btn-danger">Delete</a>
-
+<div style="align-items: center; text-align: center;">
+  <a href="{% url 'resources_update' resource.id %}" class="btn btn-warning">Edit</a>
+  <a href="{% url 'resources_delete' resource.id %}" class="btn btn-danger">Delete</a>
+</div>
+<h6 style="text-align: center;">End of Page</h6>
 {% endblock %}
