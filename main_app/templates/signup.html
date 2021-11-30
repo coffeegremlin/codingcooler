@@ -9,19 +9,20 @@
 
 {% block content %}
 
-<div class="page-header">
+<div class="control-group">
   <h1>Sign Up</h1>
-  {% comment %} <img src="{% static 'images/' %}" alt=""/> {% endcomment %}
 </div>
 {% if error_message %}
   <p>{{ error_message }}</p>
 {% endif %}
-<form action="" method="post" class="form-container" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit">Submit!</button>
+<form action="" method="post" class="form-horizontal" autocomplete="off">
+  <div class="control-group">
+    {% csrf_token %}
+    <table class="control-label">
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn">Submit!</button>
+  </div>
 </form>
 
 {% endblock %}
