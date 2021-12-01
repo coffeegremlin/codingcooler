@@ -9,9 +9,9 @@ https://codingcooler.herokuapp.com/
 
 # Visuals
 
-![homepage](https://imgur.com/pb9n4ZB)
-![project list](https://imgur.com/DhgdXdS)
-![resource list](https://imgur.com/I5j4Xjs)
+![homepage](https://i.imgur.com/pb9n4ZB.png)
+![project list](https://i.imgur.com/DhgdXdS.png)
+![resource list](https://i.imgur.com/I5j4Xjs.png)
 
 # Planned Improvements
 * Add a more transitions and animations from the utilized bootstrap library.
@@ -29,8 +29,8 @@ https://codingcooler.herokuapp.com/
 * bootstrap
 
 # Original Wireframe and Planning Concept
-![ERD](https://imgur.com/e3tke7V)
-![Wireframe](https://imgur.com/sTUqXqW)
+![ERD](https://i.imgur.com/e3tke7V.png)
+![Wireframe](https://i.imgur.com/sTUqXqW.png)
 
 # Credit:
 * Bootstrap custom library by kristopolous: https://github.com/kristopolous/BOOTSTRA.386
