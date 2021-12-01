@@ -3,32 +3,33 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
-<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.css' %}"/>
+<link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.min.css' %}"/>
 <link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div style="align-items: center; text-align: center;">
+<div style="align-items: center; text-align: center; margin-top: 40px;">
 
 {% if not user.is_authenticated %}
+
   <section>
-    <form action="{% url 'home' %}" method="post" class="login">
-      <h5>Login</h5>
+    <form action="{% url 'home' %}" method="post" class="form-inline">
+      <h2 class="form-signin-heading">Login</h2>
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn btn-success">Login</button>
+      <input type="hidden" class="input-small" name="next" value="{{ next }}">
+      <button type="submit" class="btn btn-large btn-primary">Login</button>
     </form>
   </section>
+
 {% endif %}
 
 <h1>Welcome to the Coding Cooler</h1>
 <img 
   src="{% static 'images/transparent.png' %}" 
   alt="DOS rules"
-  class="img-polaroid"
-  style="max-width:50%; max-height: 50%;"
+  style="max-width:50%;"
   />
   <h6 style="text-align: center;">End of Page</h6>
 </div>
