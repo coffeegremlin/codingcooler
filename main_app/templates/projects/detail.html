@@ -6,7 +6,7 @@
   href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
   rel="stylesheet" 
 />
-<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'css/mcdp.css' %}"> {% endcomment %}
 <script 
   src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
 >
@@ -30,14 +30,15 @@
     <div style="align-items: center; text-align: center;">
       <p id="file-name"></p>
       <form 
+        class=""
         action="{% url 'add_wireframe' project.id %}"
         enctype="multipart/form-data"
         method="POST"
       >
         {% csrf_token %}
-        <label class="btn">
+        
           <input type="file" name="wireframe-file" id="file-input" class="btn btn-primary">
-        </label>
+        
         <button type="submit" class="btn btn-primary">Upload Wireframe</button>
       </form>
     </div>
@@ -57,7 +58,7 @@
     </form>
     <h3>Steps for {{ project.name }}</h3>
     {% if project.step_set.all.count %}
-      <table>
+      <table class="table table-bordered" style="max-width: 40%; margin: 10px auto;">
         <thead>
           <tr><th>Date</th><th>Step</th></tr>
         </thead>

@@ -10,14 +10,14 @@
 {% block content %}
   
 <div class="" style="align-items: center; text-align: center;">
-  <h4>{{ resource.name }}</h4>
-  <h3>Resource URL: {{ resource.url }}</h3>
+  <h3>{{ resource.name }}</h3>
+  <h4>Resource URL: {{ resource.url }}</h4>
   {% comment %} <a href="{{ resource.url }}">Link for resource</a> {% endcomment %}
   {% comment %} Figure out how to open a link without having localhost:8000 at the front {% endcomment %}
 </div>
 <div style="align-items: center; text-align: center;">
-  <a href="{% url 'resources_update' resource.id %}" class="btn btn-warning">Edit</a>
-  <a href="{% url 'resources_delete' resource.id %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'resources_update' resource.id %}" class="btn">Edit</a>
+  <a href="{% url 'resources_delete' resource.id %}" class="btn">Delete</a>
 </div>
 <h6 style="text-align: center;">End of Page</h6>
 {% endblock %}
