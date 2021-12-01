@@ -9,14 +9,14 @@
 {% block content %}
 
 <section class="hero-unit" style="max-width: 40%; margin: 20px auto;">
-  <h2>Project List</h2>
+  <h3 class="badge badge-info" style="margin: 20px auto;">Project List</h3>
   {% comment %} add some stylish shit here, idk {% endcomment %}
   {% for project in projects %}
     <div class="hero-unit">
-      <div class="">
-        <p class="text-center">Project Name: {{ project.name }}</p>
-        <p class="text-center">Language: {{ project.programming_language }}</p>
-        <p class="text-center">Description: {{ project.description }}</p>
+      <div>
+        <p class="lead">Project Name: {{ project.name }}</p>
+        <p class="text-info">Language: {{ project.programming_language }}</p>
+        <p class="text-info">Description: {{ project.description }}</p>
         <a href="{% url 'projects_detail' project.id %}" class="btn btn-primary btn-large">Details</a>
       </div>
     </div>

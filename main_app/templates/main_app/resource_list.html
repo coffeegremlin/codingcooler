@@ -12,14 +12,10 @@
   <h3>All Project Resources</h3>
 </section>
 
-<section class="" style="align-items: center; text-align: center;">
+<section class="hero-unit" style="align-items: center; text-align: center; max-width: 40%; margin: 20px auto;">
   {% for resource in resource_list %}
-  <div class="" style="align-items: center; text-align: center;">
-    <a href="{% url 'resources_detail' resource.id %}">
-      <div class="">
-        <h4>{{ resource.name }}</h4>
-      </div>
-    </a>
+  <div style="align-items: center; text-align: center;">
+    <a href="{% url 'resources_detail' resource.id %}" class="btn btn-primary btn-large">{{ resource.name }}</a>
   </div>
   {% endfor %}
 </section>
