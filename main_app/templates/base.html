@@ -11,17 +11,16 @@
     type="image/png"
     href="{% static 'images/' %}"
   > {% endcomment %}
-  <link rel="stylesheet" media="screen" href="{% static '386/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" media="screen" href="{% static '386dos/css/bootstrap.min.css' %}">
   <title>Coding Cooler</title>
   <link rel="stylesheet" href="{% static '386dos/css/bootstrap.css' %}"/>
   <link rel="stylesheet" href="{% static '386dos/css/bootstrap-responsive.min.css' %}"/>
-  <link rel="stylesheet" href="{% static '386dos/js/google-code-prettify/prettify.css' %}">
   {% block head %}
   {% endblock %}
 </head>
 <body style="text-align: center;">
   <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="{% static '386dos/js/bootstrap.min.js' %}"></script>
   <header>
     <nav>
       <ul class="nav nav-list" style="max-width: 40%; margin: 50px auto ">
