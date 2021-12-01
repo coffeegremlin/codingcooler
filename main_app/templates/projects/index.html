@@ -8,32 +8,20 @@
 
 {% block content %}
 
-<section class="page-header">
-  <h3>Project List</h3>
+<section class="hero-unit" style="max-width: 40%; margin: 20px auto;">
+  <h2>Project List</h2>
   {% comment %} add some stylish shit here, idk {% endcomment %}
-</section>
-
-<section class="card-container">
   {% for project in projects %}
-    <div class="">
-      <a href="{% url 'projects_detail' project.id %}">
-        <div class="">
-          <div class="">
-            {% if project.wireframe.url %}
-            {% comment %} show an the wireframe if there is one {% endcomment %}
-              {% comment %} <img src="" alt="">
-            {% else %}
-              <img src="" alt=""> {% endcomment %}
-            {% endif %}
-          </div>
-          <h4 class="text-center">Project Name: {{ project.name }}</h4>
-          <p class="text-center">Language: {{ project.programming_language }}</p>
-          <p class="text-center">Description: {{ project.description }}</p>
-        </div>
-          {% endfor %}
-      </a>
+    <div class="hero-unit">
+      <div class="">
+        <p class="text-center">Project Name: {{ project.name }}</p>
+        <p class="text-center">Language: {{ project.programming_language }}</p>
+        <p class="text-center">Description: {{ project.description }}</p>
+        <a href="{% url 'projects_detail' project.id %}" class="btn btn-primary btn-large">Details</a>
+      </div>
     </div>
-    <h6 style="text-align: center;">End of Page</h6>
-</section>
+    {% endfor %}
+  </section>
+  <h6 style="text-align: center;">End of Page</h6>
 
 {% endblock %}
