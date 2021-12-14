@@ -17,123 +17,124 @@
 {% endblock %}
 
 {% block content %}
-
-<section class="project-container">
-  <div class="project-details" style="align-items: center; text-align: center;">
-    <h3>Project Name: {{ project.name }}</h3>
-    <p>{{ project.description }}</p>
-    <div style="align-items: center; text-align: center;">
-      <a href="{% url 'projects_update' project.id %}" class="btn btn-warning">Edit</a>
-      <a href="{% url 'projects_delete' project.id %}" class="btn btn-danger">Delete</a>
+<section style="max-width: 100%;">
+  <section class="project-container">
+    <div class="project-details" style="align-items: center; text-align: center;">
+      <h3>Project Name: {{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+      <div style="align-items: center; text-align: center;">
+        <a href="{% url 'projects_update' project.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'projects_delete' project.id %}" class="btn btn-danger">Delete</a>
+      </div>
+      <h3>Change {{ project.name }}'s wireframe</h3>
+      <div style="align-items: center; text-align: center;">
+        <p id="file-name"></p>
+        <form 
+          class=""
+          action="{% url 'add_wireframe' project.id %}"
+          enctype="multipart/form-data"
+          method="POST"
+        >
+          {% csrf_token %}
+          
+            <input type="file" name="wireframe-file" id="file-input" class="btn btn-primary" style="max-width: 90%;">
+          
+          <button type="submit" class="btn btn-primary">Upload Wireframe</button>
+        </form>
+      </div>
     </div>
-    <h3>Change {{ project.name }}'s wireframe</h3>
-    <div style="align-items: center; text-align: center;">
-      <p id="file-name"></p>
-      <form 
-        class=""
-        action="{% url 'add_wireframe' project.id %}"
-        enctype="multipart/form-data"
-        method="POST"
+  </section>
+  <div style="align-items: center; text-align: center;">
+    <section class="steps">
+      <h3>Add a Step to {{project.name}}</h3>
+      <form
+        action="{% url 'add_step' project.id %}"
+        method="post"
+        class="subsection-content"
       >
         {% csrf_token %}
-        
-          <input type="file" name="wireframe-file" id="file-input" class="btn btn-primary">
-        
-        <button type="submit" class="btn btn-primary">Upload Wireframe</button>
+        {{ step_form.as_p }}
+        <button type="submit" class="btn btn-success">Add Step</button>
       </form>
-    </div>
+      <h3>Steps for {{ project.name }}</h3>
+      {% if project.step_set.all.count %}
+        <table class="table table-bordered" style="max-width: 40%; margin: 10px auto;">
+          <thead>
+            <tr><th>Date</th><th>Step</th></tr>
+          </thead>
+          <tbody>
+            {% for step in project.step_set.all %}
+              <tr>
+                <td>{{ step.date }}</td>
+                <td>{{ step.name }}</td>
+
+                {% comment %} <td>
+                  <form action="" method="POST" class="form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn danger">Delete This Step</button>
+                  </form>
+                </td> {% endcomment %}
+                
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <div>
+          <p>{{project.name}} has no steps yet.</p>
+        </div>
+      {% endif %}
+    </section>
+    <section class="resources">
+      <div>
+        <h3>Resources</h3>
+      </div>
+      <h4>{{ project.name }}'s Resources</h4>
+      <div>
+        {% if project.resources.count %}
+          {% for resource in project.resources.all %}
+            <div>
+              <a href="{% url 'resources_detail' resource.id %}">
+                <p>{{ resource.name }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-resources">{{project.name}} doesn't have any resources.</p>
+        {% endif %}
+      </div>
+      <h3>Available Resources</h3>
+      <div class="subsection-content">
+        {% if resources.count %}
+          {% for resource in resources.all %}
+              <a href="{% url 'resources_detail' resource.id %}">
+                <p>Name: {{ resource.name }}</p>
+              </a>
+              <form action="{% url 'assoc_resource' project.id resource.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Add Resource to Project</button>
+              </form>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="all-resources">
+            {{project.name}} has all available resources.
+          </p>
+        {% endif %}
+      </div>
+      <div class="project-img">
+        {% if project.wireframe.url %}
+          <h4>Current Wireframe: </h4>
+          <img 
+            src="{{project.wireframe.url}}" 
+            alt="Wireframe of {{project.name}}"
+            style="width: 80%; align-items: center;"
+          >
+          <h6>End of Page</h6>
+        {% endif %}
+      </div>
+    </section>
   </div>
 </section>
-<div style="align-items: center; text-align: center;">
-  <section class="steps">
-    <h3>Add a Step to {{project.name}}</h3>
-    <form
-      action="{% url 'add_step' project.id %}"
-      method="post"
-      class="subsection-content"
-    >
-      {% csrf_token %}
-      {{ step_form.as_p }}
-      <button type="submit" class="btn btn-success">Add Step</button>
-    </form>
-    <h3>Steps for {{ project.name }}</h3>
-    {% if project.step_set.all.count %}
-      <table class="table table-bordered" style="max-width: 40%; margin: 10px auto;">
-        <thead>
-          <tr><th>Date</th><th>Step</th></tr>
-        </thead>
-        <tbody>
-          {% for step in project.step_set.all %}
-            <tr>
-              <td>{{ step.date }}</td>
-              <td>{{ step.name }}</td>
-
-              {% comment %} <td>
-                <form action="" method="POST" class="form">
-                  {% csrf_token %}
-                  <button type="submit" class="btn danger">Delete This Step</button>
-                </form>
-              </td> {% endcomment %}
-              
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <div>
-        <p>{{project.name}} has no steps yet.</p>
-      </div>
-    {% endif %}
-  </section>
-  <section class="resources">
-    <div>
-      <h3>Resources</h3>
-    </div>
-    <h4>{{ project.name }}'s Resources</h4>
-    <div>
-      {% if project.resources.count %}
-        {% for resource in project.resources.all %}
-          <div>
-            <a href="{% url 'resources_detail' resource.id %}">
-              <p>{{ resource.name }}</p>
-            </a>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p class="no-resources">{{project.name}} doesn't have any resources.</p>
-      {% endif %}
-    </div>
-    <h3>Available Resources</h3>
-    <div class="subsection-content">
-      {% if resources.count %}
-        {% for resource in resources.all %}
-            <a href="{% url 'resources_detail' resource.id %}">
-              <p>Name: {{ resource.name }}</p>
-            </a>
-            <form action="{% url 'assoc_resource' project.id resource.id %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-success">Add Resource to Project</button>
-            </form>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p class="all-resources">
-          {{project.name}} has all available resources.
-        </p>
-      {% endif %}
-    </div>
-    <div class="project-img">
-      {% if project.wireframe.url %}
-        <h4>Current Wireframe: </h4>
-        <img 
-          src="{{project.wireframe.url}}" 
-          alt="Wireframe of {{project.name}}"
-          style="width: 80%; align-items: center;"
-        >
-        <h6>End of Page</h6>
-      {% endif %}
-    </div>
-  </section>
-</div>
 
 {% endblock %}
