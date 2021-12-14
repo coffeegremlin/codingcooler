@@ -23,7 +23,7 @@
   <script src="{% static '386dos/js/bootstrap.min.js' %}"></script>
   <header>
     <nav>
-      <ul class="nav nav-list" style="max-width: 40%; margin: 50px auto ">
+      <ul class="nav nav-list" style="max-width: 80%; margin: 50px auto ">
         {% if user.is_authenticated%}
           <li class="active"><a href="{% url 'home' %}"><i class="icon-home icon-white"></i>Home</a></li>
           <li><a href="{% url 'projects_index' %}"><i class="i"></i> All Projects</a></li>
