@@ -5,7 +5,7 @@ Here is a safe, chilly space to hold all those icebox ideas. This app is made to
 This app allows you to store app/project ideas in your personal account. You can create projects with names, descriptions, and add steps to the project sorted by date. You can also save resources you commonly use, and add specific resources to individual projects.
 
 # Deployed link:
-https://codingcooler.herokuapp.com/
+https://coding-cooler.fly.dev/
 
 # Visuals
 
